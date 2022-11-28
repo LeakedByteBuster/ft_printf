@@ -6,7 +6,7 @@
 #    By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 02:49:03 by mfouadi           #+#    #+#              #
-#    Updated: 2022/11/24 13:35:06 by mfouadi          ###   ########.fr        #
+#    Updated: 2022/11/28 03:13:03 by mfouadi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ LIBFT_ARCHIVE = libft/libft.a
 #----------------------------------------------------------------------------------------------
 CFLAGS = -Wall -Werror -Wextra
 
-HEADER = ./include/ft_printf.h
+HEADER = include/ft_printf.h
 
 OBJ_D = obj
 
