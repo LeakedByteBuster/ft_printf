@@ -6,7 +6,7 @@
 #    By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/23 02:49:03 by mfouadi           #+#    #+#              #
-#    Updated: 2022/12/01 05:02:04 by mfouadi          ###   ########.fr        #
+#    Updated: 2022/12/02 04:11:50 by mfouadi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ $(NAME) : $(TITLE) $(OBJ_D) $(OBJ) $(LIBFT_ARCHIVE)
 	@ printf ${HYEL}"\nft_Printf: Compilation steps finished 👻 "$(HRED)"Run ./a.out\n\n"${NC} 
 
 $(OBJ_D)/%.o : $(SRC_PATH)%.c $(HEADER)
-	 $(CC) $(CFLAGS) $< -o $@
+	@ $(CC) $(CFLAGS) $< -o $@
 	@ printf $(HWHT)"🧐 Compiling ▻ "${HRED}"$(notdir $@)\n"${NC}
 
 $(OBJ_D) :
