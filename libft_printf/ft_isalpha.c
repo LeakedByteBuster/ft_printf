@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 04:09:28 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:40:29 by mfouadi          ###   ########.fr       */
+/*   Created: 2022/10/07 19:38:02 by mfouadi           #+#    #+#             */
+/*   Updated: 2022/11/07 04:47:37 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+//** RETURN VALUES : The isalpha() function returns zero if the character 
+//tests false and returns non-zero if the character tests true
+//if ((c >= 'A' && c  <= 'Z') || ('a' <= c && c <= 'z')){
+//	return c;
+//}
+//return 0;
+//Behave as boolean value wheater 0 or 1
 
-# ifndef STDOUT
-#  define STDOUT 1
-# endif // STDOUT
+#include "libft.h"
 
-# include "../libft_printf/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-
-int			ft_printf(const char *fmt, ...);
-long	long	wr_address(unsigned long x);
-int			ft_putunbr_fd(unsigned int n, int fd);
-void		conv_hex(unsigned int x, int *len, int sp);
-
-#endif // FT_PRINTF_H
+int	ft_isalpha(int c)
+{
+	return ((c >= 'A' && c <= 'Z') || ('a' <= c && c <= 'z'));
+}

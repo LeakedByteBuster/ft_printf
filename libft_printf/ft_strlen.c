@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 04:09:28 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:40:29 by mfouadi          ###   ########.fr       */
+/*   Created: 2022/10/16 22:01:14 by mfouadi           #+#    #+#             */
+/*   Updated: 2022/11/07 09:31:10 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# ifndef STDOUT
-#  define STDOUT 1
-# endif // STDOUT
+//Returns len of the string given
 
-# include "../libft_printf/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-int			ft_printf(const char *fmt, ...);
-long	long	wr_address(unsigned long x);
-int			ft_putunbr_fd(unsigned int n, int fd);
-void		conv_hex(unsigned int x, int *len, int sp);
-
-#endif // FT_PRINTF_H
+	i = 0;
+	while (*s++ != '\0')
+		i++;
+	return (i);
+}

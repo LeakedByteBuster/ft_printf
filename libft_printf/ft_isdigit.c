@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 04:09:28 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:40:29 by mfouadi          ###   ########.fr       */
+/*   Created: 2022/10/16 20:10:29 by mfouadi           #+#    #+#             */
+/*   Updated: 2022/11/07 04:48:20 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# ifndef STDOUT
-#  define STDOUT 1
-# endif // STDOUT
-
-# include "../libft_printf/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-
-int			ft_printf(const char *fmt, ...);
-long	long	wr_address(unsigned long x);
-int			ft_putunbr_fd(unsigned int n, int fd);
-void		conv_hex(unsigned int x, int *len, int sp);
-
-#endif // FT_PRINTF_H
+#include "libft.h"
+//Checks whether the character passed is between '0' && '9'
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}

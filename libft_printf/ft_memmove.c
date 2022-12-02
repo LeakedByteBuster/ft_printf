@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 04:09:28 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:40:29 by mfouadi          ###   ########.fr       */
+/*   Created: 2022/10/21 19:47:20 by mfouadi           #+#    #+#             */
+/*   Updated: 2022/11/07 08:47:22 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+//copy len bytes string, the two strings may overlap
+//The two strings may overlap
 
-# ifndef STDOUT
-#  define STDOUT 1
-# endif // STDOUT
+#include "libft.h"
 
-# include "../libft_printf/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t	tmp;
 
-int			ft_printf(const char *fmt, ...);
-long	long	wr_address(unsigned long x);
-int			ft_putunbr_fd(unsigned int n, int fd);
-void		conv_hex(unsigned int x, int *len, int sp);
-
-#endif // FT_PRINTF_H
+	tmp = len;
+	if (dst > src)
+		while (len-- > 0)
+			((char *)dst)[len] = ((char *)src)[len];
+	else
+		ft_memcpy(dst, src, len);
+	return (dst);
+}

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 04:09:28 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:40:29 by mfouadi          ###   ########.fr       */
+/*   Created: 2022/11/02 10:07:44 by mfouadi           #+#    #+#             */
+/*   Updated: 2022/12/02 05:25:49 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+/* 
+	Applies the function 'f' on each character of
+	the string passed as argument, passing its index
+	as first argument. Each character is passed by
+	address to 'f' to be modified if necessary.
+*/
+#include "libft.h"
 
-# ifndef STDOUT
-#  define STDOUT 1
-# endif // STDOUT
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
-# include "../libft_printf/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-
-int			ft_printf(const char *fmt, ...);
-long	long	wr_address(unsigned long x);
-int			ft_putunbr_fd(unsigned int n, int fd);
-void		conv_hex(unsigned int x, int *len, int sp);
-
-#endif // FT_PRINTF_H
+	i = -1;
+	if (s && f)
+		while (s[++i])
+			f(i, &s[i]);
+}

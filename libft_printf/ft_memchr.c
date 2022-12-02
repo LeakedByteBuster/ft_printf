@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 04:09:28 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:40:29 by mfouadi          ###   ########.fr       */
+/*   Created: 2022/10/21 04:14:11 by mfouadi           #+#    #+#             */
+/*   Updated: 2022/11/07 08:39:26 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+// locate byte in byte string, even NULL_CHAR
+// Memchr segfault in case (NULL, '\0', 1)
 
-# ifndef STDOUT
-#  define STDOUT 1
-# endif // STDOUT
+#include "libft.h"
 
-# include "../libft_printf/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	cast_c;
+	unsigned char	*cast_s;
+	size_t			i;
 
-int			ft_printf(const char *fmt, ...);
-long	long	wr_address(unsigned long x);
-int			ft_putunbr_fd(unsigned int n, int fd);
-void		conv_hex(unsigned int x, int *len, int sp);
-
-#endif // FT_PRINTF_H
+	if (n != 0)
+	{
+		cast_c = (unsigned char)c;
+		cast_s = (unsigned char *)s;
+		i = -1;
+		while (++i < n)
+		{
+			if (cast_c == cast_s[i])
+				return ((void *)(s) + i);
+		}
+	}
+	return (NULL);
+}

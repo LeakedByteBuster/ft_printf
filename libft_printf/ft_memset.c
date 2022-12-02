@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 04:09:28 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:40:29 by mfouadi          ###   ########.fr       */
+/*   Created: 2022/10/19 23:14:52 by mfouadi           #+#    #+#             */
+/*   Updated: 2022/11/07 08:48:58 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+//fill a byte string with a byte value
+// Seg fault when NULL
 
-# ifndef STDOUT
-#  define STDOUT 1
-# endif // STDOUT
+#include "libft.h"
 
-# include "../libft_printf/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t			i;
+	size_t			tmp;
+	unsigned char	cast_c;
 
-int			ft_printf(const char *fmt, ...);
-long	long	wr_address(unsigned long x);
-int			ft_putunbr_fd(unsigned int n, int fd);
-void		conv_hex(unsigned int x, int *len, int sp);
-
-#endif // FT_PRINTF_H
+	cast_c = (unsigned char)(c);
+	tmp = len;
+	i = 0;
+	while (len > 0)
+	{
+		*(unsigned char *)(b) = cast_c;
+		b++;
+		len--;
+	}
+	return (((unsigned char *)b) - tmp);
+}
