@@ -6,7 +6,7 @@
 /*   By: mfouadi <mfouadi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:38:10 by mfouadi           #+#    #+#             */
-/*   Updated: 2022/12/02 05:19:37 by mfouadi          ###   ########.fr       */
+/*   Updated: 2022/12/02 07:30:39 by mfouadi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int	ft_printf(const char *fmt, ...)
 	va_list			args;
 	unsigned int	i;
 	int				len;
-	int				checker;
 
 	va_start(args, fmt);
 	len = 0;
 	i = 0;
+	if (write(1, 0, 0) == -1)
+		return (-1);
 	while (fmt[i] != '\0')
 	{
-		checker = len;
 		if (fmt[i] == '%' && fmt[i + 1])
 		{
 			len += handle_sp(fmt, &args, i + 1);
@@ -54,8 +54,6 @@ int	ft_printf(const char *fmt, ...)
 		}
 		else
 			len += ft_putchar_fd(fmt[i], 1);
-		if (checker > len)
-			return (-1);
 		i++;
 	}
 	va_end(args);
